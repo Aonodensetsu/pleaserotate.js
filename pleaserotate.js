@@ -79,10 +79,9 @@
     }
 
     function createStyleSheet(){
-        var style = document.createElement("style");
-        style.appendChild(document.createTextNode("")); // I'm told we need this hack... something to do with safari but I don't feel like checking for sure
-        document.head.insertBefore(style, document.head.firstChild);
-        addRules(style.sheet);
+        var sheet = new CSSStyleSheet();
+        addRules(sheet);
+        document.adoptedStyleSheets.push(sheet);
     }
 
     function createElements(){
